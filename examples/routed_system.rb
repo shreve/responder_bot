@@ -78,7 +78,7 @@ end
 class RespondableResponseHandler < RespondableBot::Handler
   matcher exit: Regexp.new('^ex?i?t?', 'i'),
           x_it: /^[Xx]/
-  handle_response do
+  handle_response do |reply|
     reply.any_of(:quit, :exit, :x_it) do
       stop_order!
       'Your order has been stopped. You can try again later.'
